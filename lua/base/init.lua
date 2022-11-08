@@ -31,6 +31,9 @@ opt.smarttab = true
 -- Swap files
 opt.swapfile = false
 
+opt.backup = true
+opt.backupdir = '~/.config/nvim/tmp'
+
 -- Search
 opt.hlsearch = true
 
@@ -45,3 +48,4 @@ cmd("filetype plugin indent on")
 opt.showcmd = true
 
 require('base.keys')
+require('base.autocmd')
