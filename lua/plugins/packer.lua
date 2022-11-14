@@ -13,11 +13,19 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	vim.api.nvim_command("packadd packer.nvim")
 end
 
+vim.cmd([[
+	augroup packer_user_config
+		autocmd!
+		autocmd BufWritePost plugins.lua source <afile> | PackerSync
+	augroup end
+]])
+
 local on_file_open = { "BufRead", "BufWinEnter"}
 
 return require("packer").startup({
 	function(use)
 		use("wbthomason/packer.nvim")
+		use({"nvim-treesitter/nvim-treesitter", run=':TSUpdate', events=on_file_open, config="require('plugins.treesitter')"})
 
 		if packer_bootstrap then
 			require("packer").sync()

@@ -1,21 +1,31 @@
 local opt = vim.opt
 local cmd = vim.cmd
-opt.title = true
+
 -- Encoding
 opt.encoding = "utf-8"
 vim.scriptencoding = "utf-8"
+opt.fileencoding = "utf-8"
 
 -- Termguicolors
 opt.termguicolors = true
 
 -- Cursor
---opt.cursorline = true
+opt.cursorline = true
 --opt.cursorlineopt = "number"
 
+opt.title = true
+opt.laststatus = 3
+opt.lazyredraw = true
+opt.pumheight = 10
+opt.ignorecase = true
+opt.wrap = false
+opt.signcolumn = "yes"
 -- Lines
 opt.number = true
 opt.relativenumber = true
-opt.scrolloff = 10
+opt.scrolloff = 5
+opt.sidescrolloff = 5
+opt.scroll = 5
 
 -- Indentation
 opt.tabstop = 2
@@ -43,9 +53,26 @@ opt.clipboard = "unnamedplus"
 opt.backup = true
 
 -- Cmd
-vim.cmd('autocmd!')
-cmd("filetype plugin indent on")
 opt.showcmd = true
+opt.cmdheight = 1
 
-require('base.keys')
-require('base.autocmd')
+vim.cmd('autocmd!')
+cmd "set whichwrap+=<,>,h,l,[,]"
+cmd [[set iskeyword+=-]]
+cmd("filetype plugin indent on")
+
+vim.g.clipboard = {
+	name = 'myClipboard',
+	copy = {
+		["+"] = {'tmux', 'load-buffer', '-'},
+		["*"] = {'tmux', 'load-buffer', '-'},
+	},
+	paste = {
+		["+"] = {'tmux', 'save-buffer', '-'},
+		["*"] = {'tmux', 'save-buffer', '-'},
+	},
+	cache_enabled = true,
+}
+
+require('config.keys')
+require('config.autocmd')
