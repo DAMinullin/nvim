@@ -39,7 +39,7 @@ return require("packer").startup({
 		use({"nvim-telescope/telescope-fzf-native.nvim", run='make'})
 
 		--Git
-		use({"lewis6991/gitsigns.nvim", config="require('plugins.gitsigns')"})
+		use({"lewis6991/gitsigns.nvim", events=on_file_open, config="require('plugins.gitsigns')"})
 		if packer_bootstrap then
 			require("packer").sync()
 		end
