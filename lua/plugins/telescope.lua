@@ -1,3 +1,5 @@
+vim.g.theme_switcher_loaded = true
+
 require('telescope').setup{
   defaults = {
     -- Default configuration for telescope goes here:
@@ -16,6 +18,9 @@ require('telescope').setup{
     -- }
     -- Now the picker_config_key will be applied every time you call this
     -- builtin picker
+		colorscheme = {
+      enable_preview = true,
+    },
   },
   extensions = {
 		fzf = {
@@ -26,3 +31,5 @@ require('telescope').setup{
 		}	
   }
 }
+
+require('telescope').load_extension('fzf')

@@ -35,8 +35,8 @@ return require("packer").startup({
 		use("p00f/nvim-ts-rainbow")
 
 		--Telescope
-		use({"nvim-telescope/telescope.nvim", config="require('plugins.telescope')"})
 		use({"nvim-telescope/telescope-fzf-native.nvim", run='make'})
+		use({"nvim-telescope/telescope.nvim", config="require('plugins.telescope')"})
 
 		--Git
 		use({"lewis6991/gitsigns.nvim", events=on_file_open, config="require('plugins.gitsigns')"})
