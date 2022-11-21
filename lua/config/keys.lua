@@ -10,6 +10,8 @@ map("n", "<C-c>", '"+yy', opts)
 im("jk", "<Esc>")
 nm("qq", ":wq<cr>")
 
+-- Folding
+-- zf - fold, zo - infold
 --Telescope
 map("n", "<leader>f", ":Telescope find_files<cr>", opts)
 
