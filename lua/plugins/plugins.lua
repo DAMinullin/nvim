@@ -40,6 +40,22 @@ return require("packer").startup({
 
 		--Git
 		use({"lewis6991/gitsigns.nvim", events=on_file_open, config="require('plugins.gitsigns')"})
+
+		--Lualine
+		use({"nvim-lualine/lualine.nvim", after="darkplus.nvim", events=on_file_open, config="require('plugins.lualine')"})
+
+		-- Cmp
+		use("hrsh7th/cmp-buffer")
+		use("hrsh7th/cmp-path")
+		use("hrsh7th/cmp-cmdline")
+		use("saadparwaiz1/cmp_luasnip")
+		use({"hrsh7th/nvim-cmp", config="require('plugins.cmp')"})
+
+		-- Snippets
+		use("L3MON4D3/LuaSnip")
+		use("rafamadriz/friendly-snippets")
+		
+
 		if packer_bootstrap then
 			require("packer").sync()
 		end
