@@ -54,6 +54,12 @@ return require("packer").startup({
 		-- Snippets
 		use("L3MON4D3/LuaSnip")
 		use("rafamadriz/friendly-snippets")
+
+		-- LSP
+		use("neovim/nvim-lspconfig")
+		use("williamboman/mason-lspconfig.nvim")
+		use({"williamboman/mason.nvim", config="require('plugins.lsp')"})
+
 		
 
 		if packer_bootstrap then
